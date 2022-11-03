@@ -52,7 +52,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="78d49f61-cce9-40c4-a95e-ba090c53f110" />
+    <option name="defaultAccountId" value="07398ea8-f988-4f58-bde2-886035f42925" />
   </component>
   <component name="ProjectId" id="2Ep7H9bgKheRsWlcfO7Eiyd41RM" />
   <component name="ProjectLevelVcsManager">
@@ -73,7 +73,7 @@
     <property name="project.structure.last.edited" value="Variables" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -155,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667514112777</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ALL THE CODE">
+      <created>1667515960108</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667515960108</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
