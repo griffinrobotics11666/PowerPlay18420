@@ -137,21 +137,18 @@ public class PowerPlayAutonomousRight extends LinearOpMode
             case LEFT:
             {
                 //F5
-
                 gyroTurn(.4,0);
                 break;
             }
 
             case CENTER: {
 
-                gyroTurn(.4,0);
                 gyroStrafe(.4,-20,0);
                 break;
             }
 
             case RIGHT: {
 
-                gyroTurn(.4,0);
                 gyroStrafe(.4,-44,0);
                 break;
             }
