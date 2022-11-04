@@ -14,7 +14,7 @@ public class DriverControl extends OpMode {
 
     Hardwarerobot robot   = new Hardwarerobot();
     double slowfactor = 0.5;
-    static final double ARM_POWER_LIMIT = .5;
+    static final double ARM_POWER_LIMIT = .499;
     static double CLAW_CLOSED_POSITION = .27; // flip closed and open
     static double CLAW_OPENED_POSITION = .08;
     static double ARM_COUNTS_PER_INCH = 114.75; //Figure out right number
