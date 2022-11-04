@@ -20,7 +20,7 @@ public class TherePipeline extends OpenCvPipeline {
     }
 
     boolean viewportPaused = false;
-    static final Point THEREBOX_TOPRIGHT_ANCHOR_POINT = new Point (150,110);
+    static final Point THEREBOX_TOPRIGHT_ANCHOR_POINT = new Point (200,110);
     static final int THEREBOX_WIDTH = 20;
     static final int THEREBOX_HEIGHT = 20;
     public String color = "RED";
@@ -126,6 +126,12 @@ public class TherePipeline extends OpenCvPipeline {
 
         Imgproc.rectangle(
                 input,
+                THEREBOX_TOPRIGHT_ANCHOR_POINT, THEREBOX_point2,
+                thereColor , 2);
+
+        /*
+        Imgproc.rectangle(
+                input,
                 new Point(
                         150,
                         110),
@@ -133,6 +139,8 @@ public class TherePipeline extends OpenCvPipeline {
                         170,
                         130),
                 thereColor , 2);
+               */
+
 
         /**
          * NOTE: to see how to get data from your pipeline to your OpMode as well as how

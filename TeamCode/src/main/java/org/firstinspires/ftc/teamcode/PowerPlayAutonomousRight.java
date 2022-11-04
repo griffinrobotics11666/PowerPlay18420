@@ -107,82 +107,50 @@ public class PowerPlayAutonomousRight extends LinearOpMode
         telemetry.addData("Snapshot post-START analysis", getAnalysis);
         telemetry.update();
         getAnalysis = TherePipeline.PowerPlayPosition.LEFT;
+
+        closeClaw();
+        sleep(500);
+        gyroDrive(.4,35,0);
+        sleep(1000);
+        gyroDrive(.4,-11,0);
+        sleep(500);
+        gyroTurn(.4,90);
+        gyroDrive(.4,20,90);
+        gyroTurn(.4,45);
+        sleep(500);
+        goTo3();
+        sleep(3000);
+        gyroDrive(.4,6,45);
+        sleep(500);
+        goTo4();
+        sleep(500);
+        openClaw();
+        sleep(500);
+        gyroDrive(.4,-6,45);
+        goTo0();
+        sleep(3000);
+        closeClaw();
+        gyroTurn(.4,0);
+
         switch (getAnalysis)
         {
             case LEFT:
             {
                 //F5
-                closeClaw();
-                sleep(500);
-                gyroDrive(.4,24,0);
-                sleep(1000);
-                gyroTurn(.4,90);
-                gyroDrive(.4,20,90);
-                gyroTurn(.4,45);
-                sleep(500);
-                goTo3();
-                sleep(3000);
-                gyroDrive(.4,6,45);
-                sleep(500);
-                goTo4();
-                sleep(500);
-                openClaw();
-                sleep(500);
-                gyroDrive(.4,-6,45);
-                goTo0();
-                sleep(3000);
-                closeClaw();
+
                 gyroTurn(.4,0);
                 break;
             }
 
             case CENTER: {
-                closeClaw();
-                sleep(500);
-                gyroDrive(.4,24,0);
-                sleep(1000);
-                gyroTurn(.4,90);
-                gyroDrive(.4,20,90);
-                gyroTurn(.4,45);
-                sleep(500);
-                goTo3();
-                sleep(3000);
-                gyroDrive(.4,6,45);
-                sleep(500);
-                goTo4();
-                sleep(500);
-                openClaw();
-                sleep(500);
-                gyroDrive(.4,-6,45);
-                goTo0();
-                sleep(3000);
-                closeClaw();
+
                 gyroTurn(.4,0);
                 gyroStrafe(.4,-20,0);
                 break;
             }
 
             case RIGHT: {
-                closeClaw();
-                sleep(500);
-                gyroDrive(.4,24,0);
-                sleep(1000);
-                gyroTurn(.4,90);
-                gyroDrive(.4,20,90);
-                gyroTurn(.4,45);
-                sleep(500);
-                goTo3();
-                sleep(3000);
-                gyroDrive(.4,6,45);
-                goTo4();
-                sleep(500);
-                sleep(500);
-                openClaw();
-                sleep(500);
-                gyroDrive(.4,-6,45);
-                goTo0();
-                sleep(3000);
-                closeClaw();
+
                 gyroTurn(.4,0);
                 gyroStrafe(.4,-44,0);
                 break;

@@ -115,10 +115,12 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
                 //F5
                 closeClaw();
                 sleep(500);
-                gyroDrive(.4,24,0);
+                gyroDrive(.4,35,0);
                 sleep(1000);
+                gyroDrive(.4,-11,0);
+                sleep(500);
                 gyroTurn(.4,-90);
-                gyroDrive(.4,26,-90);
+                gyroDrive(.4,20,-90);
                 gyroTurn(.4,-47);
                 sleep(500);
                 goTo3();
@@ -141,17 +143,19 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
             case CENTER: {
                 closeClaw();
                 sleep(500);
-                gyroDrive(.4,24,0);
+                gyroDrive(.4,35,0);
                 sleep(1000);
+                gyroDrive(.4,-11,0);
+                sleep(500);
                 gyroTurn(.4,-90);
                 sleep(500);
-                gyroDrive(.4,25,-90);
+                gyroDrive(.4,20,-90);
                 sleep(500);
                 gyroTurn(.2,-45);
                 sleep(500);
                 goTo3();
                 sleep(3500);
-                gyroDrive(.2,10,-45);
+                gyroDrive(.2,15,-45);
                 sleep(1000);
                 goTo4();
                 sleep(500);
@@ -170,10 +174,12 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
             case RIGHT: {
                 closeClaw();
                 sleep(500);
-                gyroDrive(.4,24,0);
+                gyroDrive(.4,35,0);
                 sleep(1000);
+                gyroDrive(.4,-11,0);
+                sleep(500);
                 gyroTurn(.4,-90);
-                gyroDrive(.4,26,-90);
+                gyroDrive(.4,20,-90);
                 gyroTurn(.4,-47);
                 sleep(500);
                 goTo3();

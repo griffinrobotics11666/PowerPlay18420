@@ -13,7 +13,7 @@ public class DriverControl extends OpMode {
     private ElapsedTime runtime = new ElapsedTime(); //clock
 
     Hardwarerobot robot   = new Hardwarerobot();
-
+    double slowfactor = 0.5;
     static final double ARM_POWER_LIMIT = .5;
     static double CLAW_CLOSED_POSITION = .27; // flip closed and open
     static double CLAW_OPENED_POSITION = .08;
@@ -117,6 +117,17 @@ public class DriverControl extends OpMode {
 
         // leftPower  = -gamepad1.left_stick_y ;
         // rightPower = -gamepad1.right_stick_y ;
+
+        if ( gamepad1.right_trigger > 0 )
+        {
+            leftFrontPower = leftFrontPower * slowfactor;
+            leftBackPower = leftBackPower * slowfactor;
+            rightFrontPower = rightFrontPower * slowfactor;
+            rightBackPower = rightBackPower * slowfactor;
+        }
+
+        //gotta go fast haha wait just kidding
+        //SLAY!!!!!!!
 
         robot.leftFrontDrive.setPower(leftFrontPower);
         robot.leftBackDrive.setPower(leftBackPower);
