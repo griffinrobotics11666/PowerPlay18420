@@ -63,11 +63,11 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
         robot.init(hardwareMap);
         // int urMom;
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
-        parameters.loggingEnabled      = true;
-        parameters.loggingTag          = "IMU";
+        parameters.loggingEnabled = true;
+        parameters.loggingTag = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
@@ -88,8 +88,8 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
             }
         });
         imu.startAccelerationIntegration(new Position(), new Velocity(), 1000);
-        angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        gravity  = imu.getGravity();
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        gravity = imu.getGravity();
         robot.armExtendor.setTargetPosition(newTarget);
         robot.armExtendor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.armExtendor.setPower(0);
@@ -99,109 +99,114 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
             telemetry.addData("Realtime analysis", pipeline.getAnalysis());
             telemetry.update();
             sleep(50);
-             
+
         }
         robot.armExtendor.setPower(1);
         telemetry.addData("Snapshot post-START analysis", getAnalysis);
         telemetry.update();
-        //getAnalysis = TherePipeline.PowerPlayPosition.RIGHT;
+        getAnalysis = pipeline.getAnalysis();
 
 
+        switch (getAnalysis) {
 
-        switch (getAnalysis)
-        {
-            case LEFT:
-            {
+            case LEFT: {
                 //F5
                 closeClaw();
                 sleep(500);
-                gyroDrive(.4,35,0);
+                gyroDrive(.4, 35, 0);
                 sleep(1000);
-                gyroDrive(.4,-11,0);
+                gyroDrive(.4, -8, 0);
                 sleep(500);
-                gyroTurn(.4,-90);
-                gyroDrive(.4,20,-90);
-                gyroTurn(.4,-47);
+                gyroTurn(.4, -90);
+                gyroDrive(.4, 20, -90);
+                gyroTurn(.4, -47);
                 sleep(500);
                 goTo3();
                 sleep(3000);
-                gyroDrive(.4,6,-47);
-                sleep(500);
+                gyroDrive(.4, 10, -47);
+                sleep(1000);
                 goTo4();
                 sleep(500);
                 openClaw();
                 sleep(500);
-                gyroDrive(.4,-6,-47);
+                gyroDrive(.4, -9, -47);
                 sleep(500);
                 goTo0();
                 sleep(3000);
                 closeClaw();
-                gyroTurn(.4,0);
+                gyroTurn(.4, 0);
+                sleep(500);
+                gyroDrive(.4,-3,-47);
+                sleep(700);
+                gyroTurn(.4,90);
+                gyroDrive(.4,40,90);
                 break;
             }
 
             case CENTER: {
                 closeClaw();
                 sleep(500);
-                gyroDrive(.4,35,0);
+                gyroDrive(.4, 35, 0);
                 sleep(1000);
-                gyroDrive(.4,-11,0);
+                gyroDrive(.4, -10, 0);
                 sleep(500);
-                gyroTurn(.4,-90);
+                gyroTurn(.4, -90);
                 sleep(500);
-                gyroDrive(.4,20,-90);
+                gyroDrive(.4, 20, -90);
                 sleep(500);
-                gyroTurn(.2,-45);
+                gyroTurn(.2, -45);
                 sleep(500);
                 goTo3();
                 sleep(3500);
-                gyroDrive(.2,15,-45);
+                gyroDrive(.2, 15, -45);
                 sleep(1000);
                 goTo4();
                 sleep(500);
                 openClaw();
                 sleep(500);
-                gyroDrive(.4,-9,-45);
+                gyroDrive(.4, -9, -45);
                 goTo0();
                 sleep(3000);
                 closeClaw();
-                gyroTurn(.4,0);
+                gyroTurn(.4, 0);
                 sleep(500);
-                gyroStrafe(.4,-20,0);
+                gyroTurn(.4,90);
+                gyroDrive(.4,20,90);
                 break;
             }
 
+
             case RIGHT: {
+
                 closeClaw();
                 sleep(500);
-                gyroDrive(.4,35,0);
+                gyroDrive(.4, 35, 0);
                 sleep(1000);
-                gyroDrive(.4,-11,0);
+                gyroDrive(.4, -10, 0);
                 sleep(500);
-                gyroTurn(.4,-90);
-                gyroDrive(.4,20,-90);
-                gyroTurn(.4,-47);
+                gyroTurn(.4, -90);
+                gyroDrive(.4, 20, -90);
+                gyroTurn(.4, -47);
                 sleep(500);
                 goTo3();
                 sleep(3000);
-                gyroDrive(.4,9,-47);
+                gyroDrive(.4, 9, -47);
                 sleep(500);
                 goTo4();
                 sleep(500);
                 openClaw();
                 sleep(500);
-                gyroDrive(.4,-10,-47);
+                gyroDrive(.4, -10, -47);
                 goTo0();
                 sleep(3000);
-                closeClaw();
-                gyroTurn(.4,0);
-                sleep(500);
-                gyroStrafe(.4,-44,0);
+                gyroTurn(.4, 0);
                 break;
             }
 
+
         }
     }
+
     public void encoderDrive(double speed,
                              double distance,
                              double timeoutS) {
@@ -550,7 +555,7 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
         robot.armExtendor.setTargetPosition(newTarget);
     }
     public void goTo3() {
-        double distance = 35.5;
+        double distance = 37;
         newTarget = (int) (distance * ARM_COUNTS_PER_INCH);
         robot.armExtendor.setTargetPosition(newTarget);
     }

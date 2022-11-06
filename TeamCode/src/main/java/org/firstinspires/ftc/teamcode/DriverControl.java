@@ -62,10 +62,10 @@ public class DriverControl extends OpMode {
         double strafe = gamepad1.left_stick_x;
         double addToClaw = .0001;
 
-        if (gamepad1.a){
+        if (gamepad2.a){
             robot.claw.setPosition(CLAW_CLOSED_POSITION);
         }
-        if (gamepad1.b){
+        if (gamepad2.b){
             robot.claw.setPosition(CLAW_OPENED_POSITION);
         }
 
@@ -89,16 +89,16 @@ public class DriverControl extends OpMode {
 
 
 
-        if (gamepad1.dpad_down) {
+        if (gamepad2.dpad_down) {
             goTo0();
         }
-        else if (gamepad1.dpad_left) {
+        else if (gamepad2.dpad_left) {
             goTo1();
         }
-        else if (gamepad1.dpad_right) {
+        else if (gamepad2.dpad_right) {
             goTo2();
         }
-        else if (gamepad1.dpad_up) {
+        else if (gamepad2.dpad_up) {
             goTo3();
         }
 

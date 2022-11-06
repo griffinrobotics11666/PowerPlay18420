@@ -106,13 +106,13 @@ public class PowerPlayAutonomousRight extends LinearOpMode
         robot.armExtendor.setPower(1);
         telemetry.addData("Snapshot post-START analysis", getAnalysis);
         telemetry.update();
-        getAnalysis = TherePipeline.PowerPlayPosition.LEFT;
+        getAnalysis = pipeline.getAnalysis();
 
         closeClaw();
         sleep(500);
         gyroDrive(.4,35,0);
         sleep(1000);
-        gyroDrive(.4,-11,0);
+        gyroDrive(.4,-9,0);
         sleep(500);
         gyroTurn(.4,90);
         gyroDrive(.4,20,90);
@@ -120,7 +120,7 @@ public class PowerPlayAutonomousRight extends LinearOpMode
         sleep(500);
         goTo3();
         sleep(3000);
-        gyroDrive(.4,6,45);
+        gyroDrive(.4,10,45);
         sleep(500);
         goTo4();
         sleep(500);
@@ -131,6 +131,7 @@ public class PowerPlayAutonomousRight extends LinearOpMode
         sleep(3000);
         closeClaw();
         gyroTurn(.4,0);
+        gyroDrive(.4,-3,0);
 
         switch (getAnalysis)
         {
@@ -143,13 +144,13 @@ public class PowerPlayAutonomousRight extends LinearOpMode
 
             case CENTER: {
 
-                gyroStrafe(.4,-20,0);
+                gyroStrafe(.4,20,0);
                 break;
             }
 
             case RIGHT: {
 
-                gyroStrafe(.4,-44,0);
+                gyroStrafe(.4,44,0);
                 break;
             }
 
