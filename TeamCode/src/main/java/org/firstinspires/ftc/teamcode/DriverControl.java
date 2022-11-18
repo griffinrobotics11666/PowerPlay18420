@@ -47,7 +47,6 @@ public class DriverControl extends OpMode {
     public void start() {
         runtime.reset();
     }
-
     @Override
     public void loop() {
         // Setup a variable for each drive wheel to save power level for telemetry
@@ -86,7 +85,20 @@ public class DriverControl extends OpMode {
          */
 
 
-
+        if (-gamepad2.left_stick_y>.1){ //me when go up
+            newTarget = (int)(newTarget + 5 * -gamepad2.left_stick_y);
+            if (newTarget/ARM_COUNTS_PER_INCH > 35.5) {
+                newTarget = (int) (35.5 * ARM_COUNTS_PER_INCH);
+            }
+            robot.armExtendor.setTargetPosition(newTarget);
+        }
+        if (gamepad2.left_stick_y>.1){  //go down hehe
+            newTarget = (int)(newTarget - 5 * gamepad2.left_stick_y);
+            if (newTarget/ARM_COUNTS_PER_INCH < 1) {
+                newTarget = (int)(1 * ARM_COUNTS_PER_INCH);
+            }
+            robot.armExtendor.setTargetPosition(newTarget);
+        }
 
 
         if (gamepad2.dpad_down) {
