@@ -113,13 +113,13 @@ public class TherePipeline extends OpenCvPipeline {
         else if (big2 == avgG) {
             thereColor = GREEN;
             color = "GREEN";
-            coneState = PowerPlayPosition.CENTER;
+            coneState = PowerPlayPosition.RIGHT;
 
         }
         else {
             thereColor = BLUE;
             color = "BLUE";
-            coneState = PowerPlayPosition.RIGHT;
+            coneState = PowerPlayPosition.CENTER;
 
         }
 

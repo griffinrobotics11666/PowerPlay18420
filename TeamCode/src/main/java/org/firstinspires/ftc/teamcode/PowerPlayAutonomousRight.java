@@ -103,35 +103,37 @@ public class PowerPlayAutonomousRight extends LinearOpMode
             sleep(50);
              
         }
+        getAnalysis = pipeline.getAnalysis();
         robot.armExtendor.setPower(1);
         telemetry.addData("Snapshot post-START analysis", getAnalysis);
         telemetry.update();
-        getAnalysis = pipeline.getAnalysis();
+
 
         closeClaw();
         sleep(500);
-        gyroDrive(.4,35,0);
+        gyroDrive(.4,38,0);
         sleep(1000);
-        gyroDrive(.4,-9,0);
+        gyroDrive(.4,-12,0);
         sleep(500);
         gyroTurn(.4,90);
         gyroDrive(.4,20,90);
-        gyroTurn(.4,45);
+        gyroTurn(.4,50);
         sleep(500);
         goTo3();
         sleep(3000);
-        gyroDrive(.4,10,45);
+        gyroDrive(.4,8,45);
         sleep(500);
         goTo4();
         sleep(500);
         openClaw();
         sleep(500);
-        gyroDrive(.4,-6,45);
+        gyroDrive(.4,-5,45);
         goTo0();
         sleep(3000);
         closeClaw();
         gyroTurn(.4,0);
         gyroDrive(.4,-3,0);
+        sleep(250);
 
         switch (getAnalysis)
         {
@@ -144,13 +146,17 @@ public class PowerPlayAutonomousRight extends LinearOpMode
 
             case CENTER: {
 
-                gyroStrafe(.4,20,0);
+                gyroTurn(.4,-90);
+                gyroDrive(.4,22,-90);
+                gyroTurn(.4,0);
                 break;
             }
 
             case RIGHT: {
 
-                gyroStrafe(.4,44,0);
+                gyroTurn(.4,-90);
+                gyroDrive(.4,46,-90);
+                gyroTurn(.4,0);
                 break;
             }
 
@@ -504,7 +510,7 @@ public class PowerPlayAutonomousRight extends LinearOpMode
         robot.armExtendor.setTargetPosition(newTarget);
     }
     public void goTo3() {
-        double distance = 35.5;
+        double distance = 37;
         newTarget = (int) (distance * ARM_COUNTS_PER_INCH);
         robot.armExtendor.setTargetPosition(newTarget);
     }

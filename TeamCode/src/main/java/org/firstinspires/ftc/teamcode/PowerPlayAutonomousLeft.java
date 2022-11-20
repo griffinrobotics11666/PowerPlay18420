@@ -101,10 +101,11 @@ public class PowerPlayAutonomousLeft extends LinearOpMode
             sleep(50);
 
         }
+        getAnalysis = pipeline.getAnalysis();
         robot.armExtendor.setPower(1);
         telemetry.addData("Snapshot post-START analysis", getAnalysis);
         telemetry.update();
-        getAnalysis = pipeline.getAnalysis();
+
 
 
         switch (getAnalysis) {

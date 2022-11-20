@@ -94,10 +94,17 @@ public class DriverControl extends OpMode {
         }
         if (gamepad2.left_stick_y>.1){  //go down hehe
             newTarget = (int)(newTarget - 5 * gamepad2.left_stick_y);
+            /*
             if (newTarget/ARM_COUNTS_PER_INCH < 1) {
-                newTarget = (int)(1 * ARM_COUNTS_PER_INCH);
-            }
+                newTarget = (int)(1 * ARM_COUNTS_PER_INCH)
+            } */
+
             robot.armExtendor.setTargetPosition(newTarget);
+        }
+        if (gamepad2.x) {
+            robot.armExtendor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.armExtendor.setTargetPosition(0);
+            robot.armExtendor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
 
 
@@ -173,7 +180,7 @@ public class DriverControl extends OpMode {
         robot.armExtendor.setTargetPosition(newTarget);
     }
     public void goTo3() {
-        double distance = 35.5;
+        double distance = 37;
         newTarget = (int) (distance * ARM_COUNTS_PER_INCH);
         robot.armExtendor.setTargetPosition(newTarget);
     }
